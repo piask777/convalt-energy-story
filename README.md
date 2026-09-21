@@ -2,6 +2,8 @@
 
 A working 3D landing-page prototype that presents manufacturing, power generation, data centers, and recycling as one connected system.
 
+[View the live prototype](https://piask777.github.io/convalt-energy-story/)
+
 The desktop experience uses original procedural WebGL geometry. Mobile devices, reduced-motion preferences, unavailable WebGL, and rendering failures receive a lightweight visual fallback with the same complete content.
 
 ## Run locally
@@ -29,4 +31,3 @@ pnpm run build
 - The complete narrative remains available as semantic HTML.
 
 No external models, textures, images, runtime services, or environment variables are required.
-
