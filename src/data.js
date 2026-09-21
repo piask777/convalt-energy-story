@@ -1,0 +1,38 @@
+export const chapters = [
+  {
+    id: 'manufacturing',
+    kicker: 'Build the source',
+    title: 'Manufacturing',
+    word: 'MAKE',
+    summary: 'American manufacturing forms the first link: the equipment and components that energy infrastructure depends on.',
+    system: 'Solar and energy components',
+    role: 'The physical foundation',
+  },
+  {
+    id: 'generation',
+    kicker: 'Put energy to work',
+    title: 'Power generation',
+    word: 'POWER',
+    summary: 'Generation projects turn installed infrastructure into dependable power for communities, industry, and digital operations.',
+    system: 'Energy development',
+    role: 'The operating current',
+  },
+  {
+    id: 'data',
+    kicker: 'Connect power and compute',
+    title: 'Data centers',
+    word: 'COMPUTE',
+    summary: 'Integrated digital infrastructure brings energy planning and high-density computing into one connected system.',
+    system: 'Digital infrastructure',
+    role: 'The intelligent load',
+  },
+  {
+    id: 'recycling',
+    kicker: 'Return material to use',
+    title: 'Recycling',
+    word: 'RENEW',
+    summary: 'Recovery closes the loop by directing useful materials from retired equipment back toward productive use.',
+    system: 'Material recovery',
+    role: 'The returning cycle',
+  },
+]
