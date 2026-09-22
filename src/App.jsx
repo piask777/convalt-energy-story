@@ -17,12 +17,18 @@ export default function App() {
   const [journey, setJourney] = useState(0)
   const [sceneFailed, setSceneFailed] = useState(false)
   const [lightweight, setLightweight] = useState(() => !canRenderWebGL())
+  const [compact, setCompact] = useState(() => matchMedia('(max-width: 760px)').matches)
+  const [reducedMotion, setReducedMotion] = useState(() => matchMedia('(prefers-reduced-motion: reduce)').matches)
   const sections = useRef([])
 
   useEffect(() => {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)')
     const narrow = matchMedia('(max-width: 760px)')
-    const updateMode = () => setLightweight(reduced.matches || narrow.matches || !canRenderWebGL())
+    const updateMode = () => {
+      setLightweight(!canRenderWebGL())
+      setCompact(narrow.matches)
+      setReducedMotion(reduced.matches)
+    }
     updateMode()
     reduced.addEventListener('change', updateMode)
     narrow.addEventListener('change', updateMode)
@@ -99,7 +105,7 @@ export default function App() {
           </div>
         ) : (
           <Suspense fallback={<p className="scene-status">Initializing energy field</p>}>
-            <EnergyScene chapter={active} progress={journey * (chapters.length - 1)} onFailure={() => setSceneFailed(true)} />
+            <EnergyScene chapter={active} progress={journey * (chapters.length - 1)} compact={compact} reducedMotion={reducedMotion} onFailure={() => setSceneFailed(true)} />
           </Suspense>
         )}
       </div>

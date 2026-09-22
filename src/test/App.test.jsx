@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import App from '../App'
 import { chapters } from '../data'
@@ -13,6 +13,7 @@ vi.mock('../components/EnergyScene', () => ({
 }))
 
 afterEach(() => {
+  cleanup()
   vi.restoreAllMocks()
   sceneRender.mockClear()
 })
@@ -44,7 +45,7 @@ describe('lightweight fallback', () => {
     expect(sceneRender).not.toHaveBeenCalled()
   })
 
-  it('honors the reduced-motion preference even when WebGL is available', () => {
+  it('keeps the 3D scene while disabling motion when reduced motion is preferred', async () => {
     vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({})
     vi.spyOn(window, 'matchMedia').mockImplementation((query) => ({
       matches: query === '(prefers-reduced-motion: reduce)',
@@ -55,8 +56,9 @@ describe('lightweight fallback', () => {
     }))
     const { container } = render(<App />)
 
-    expect(container.querySelector('.fallback-visual')).toBeInTheDocument()
-    expect(sceneRender).not.toHaveBeenCalled()
+    await screen.findByTestId('scene-failure')
+    expect(container.querySelector('.fallback-visual')).not.toBeInTheDocument()
+    expect(sceneRender).toHaveBeenCalledWith(expect.objectContaining({ reducedMotion: true }))
   })
 
   it('replaces the scene if its rendering context fails', async () => {

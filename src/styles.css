@@ -15,7 +15,7 @@ button { font: inherit; }
 .chapter-count { margin: 0; font-size: .68rem; color: #aaa; }
 .chapter-count span { color: #fff; }
 .scene-layer { position: fixed; z-index: -1; inset: 0; width: 100%; height: 100vh; }
-.scene-layer::after { position: absolute; inset: 0; content: ''; background: linear-gradient(90deg, rgba(7,16,14,.84) 0%, rgba(7,16,14,.25) 48%, rgba(7,16,14,.08)); pointer-events: none; }
+.scene-layer::after { position: absolute; inset: 0; content: ''; background: linear-gradient(90deg, rgba(7,16,14,.88) 0%, rgba(7,16,14,.3) 42%, rgba(7,16,14,.03) 72%); pointer-events: none; }
 .scene-status { position: absolute; z-index: 2; inset: 50% auto auto 65%; margin: 0; color: #819089; font: .6rem ui-monospace, "Cascadia Mono", monospace; letter-spacing: .14em; text-transform: uppercase; transform: translate(-50%, -50%); transition: opacity .3s; }
 .scene-status.is-ready { opacity: 0; }
 .chapter { position: relative; display: grid; min-height: 100svh; padding: 9rem clamp(1.25rem, 8vw, 9rem) 7rem; align-items: center; grid-template-columns: minmax(0, 31rem) 1fr; }
@@ -51,7 +51,7 @@ dd { margin: 0; font-size: .76rem; }
   .chapter-copy { padding-bottom: 2rem; }
   h1 { font-size: clamp(3.2rem, 16vw, 5.6rem); }
   .summary { margin: 1.5rem 0 2rem; font-size: .94rem; }
-  .scene-layer::after { background: linear-gradient(0deg, rgba(7,16,14,.97) 10%, rgba(7,16,14,.25) 77%); }
+  .scene-layer::after { background: linear-gradient(0deg, rgba(7,16,14,.98) 6%, rgba(7,16,14,.72) 38%, rgba(7,16,14,.05) 76%); }
   .fallback-visual { inset: 4% 2% 44% 2%; }
   .chapter-nav { right: .45rem; }
   .chapter-nav button span { position: absolute; clip-path: inset(50%); }
